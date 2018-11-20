@@ -1,4 +1,4 @@
-package com.tch.fise;
+package com.fise;
 
 import org.junit.Test;
 import org.junit.runner.RunWith;

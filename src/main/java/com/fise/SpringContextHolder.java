@@ -1,4 +1,4 @@
-package com.tch.fise;
+package com.fise;
 
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.ApplicationContextAware;
@@ -12,26 +12,26 @@ import org.springframework.stereotype.Component;
 
 @Component
 public class SpringContextHolder implements ApplicationContextAware {
-    
+
     private static ApplicationContext applicationContext;
-    
-    public static Object getBean(String beanName){
+
+    public static Object getBean(String beanName) {
         return getApplicationContext().getBean(beanName);
     }
-    
-    
-    public static <T> T getBean(Class<T> T){
+
+
+    public static <T> T getBean(Class<T> T) {
         return getApplicationContext().getBean(T);
     }
-    
+
     public static ApplicationContext getApplicationContext() {
         return applicationContext;
     }
-    
+
     @Override
     public void setApplicationContext(ApplicationContext applicationContext) {
         this.applicationContext = applicationContext;
     }
-    
-    
+
+
 }

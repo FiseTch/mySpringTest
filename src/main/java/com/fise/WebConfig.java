@@ -1,4 +1,4 @@
-package com.tch.fise;
+package com.fise;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
@@ -14,26 +14,26 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 
 @Configuration
 public class WebConfig extends WebMvcConfigurationSupport {
-    
+
     @Override
     protected void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/")//浏览器访问路径
                 .setViewName("forward:/index");//映射后的路径
         registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
-        
+
         super.addViewControllers(registry);
     }
-    
+
     @Override
     protected void configurePathMatch(PathMatchConfigurer configurer) {
         // 匹配结尾 / :会识别 url 的最后一个字符是否为 /
         //eg： localhost:8080/test 与 localhost:8080/test/ 等价
         configurer.setUseTrailingSlashMatch(true);
-        
+
         // 匹配后缀名：会识别 xx.* 后缀的内容
         //eg： localhost:8080/test 与 localhost:8080/test.jsp 等价
         configurer.setUseSuffixPatternMatch(true);
-        
+
         super.configurePathMatch(configurer);
     }
 }

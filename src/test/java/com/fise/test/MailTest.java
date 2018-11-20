@@ -1,6 +1,6 @@
-package com.tch.fise.test;
+package com.fise.test;
 
-import com.tch.fise.FiseApplicationTests;
+import com.fise.FiseApplicationTests;
 import org.junit.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.mail.SimpleMailMessage;
