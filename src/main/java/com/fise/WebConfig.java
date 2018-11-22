@@ -2,9 +2,7 @@ package com.fise;
 
 import org.springframework.context.annotation.Configuration;
 import org.springframework.core.Ordered;
-import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
-import org.springframework.web.servlet.config.annotation.ViewControllerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+import org.springframework.web.servlet.config.annotation.*;
 
 /**
  * @author Tongch
@@ -14,25 +12,31 @@ import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupp
 
 @Configuration
 public class WebConfig extends WebMvcConfigurationSupport {
-
     @Override
-    protected void addViewControllers(ViewControllerRegistry registry) {
-        registry.addViewController("/")//浏览器访问路径
-                .setViewName("forward:/index");//映射后的路径
-        registry.setOrder(Ordered.HIGHEST_PRECEDENCE);
+    protected void addResourceHandlers(ResourceHandlerRegistry registry) {
+        registry.addResourceHandler("/static/**")
+                .addResourceLocations("classpath:/static/");
 
-        super.addViewControllers(registry);
+        super.addResourceHandlers(registry);
     }
+
+
+
+
+
+
+    //设置后缀名，根据请求的文档类型，来查找不同的视图以返回对应格式的文档
+
 
     @Override
     protected void configurePathMatch(PathMatchConfigurer configurer) {
         // 匹配结尾 / :会识别 url 的最后一个字符是否为 /
         //eg： localhost:8080/test 与 localhost:8080/test/ 等价
-        configurer.setUseTrailingSlashMatch(true);
+        //configurer.setUseTrailingSlashMatch(true);
 
         // 匹配后缀名：会识别 xx.* 后缀的内容
         //eg： localhost:8080/test 与 localhost:8080/test.jsp 等价
-        configurer.setUseSuffixPatternMatch(true);
+        //configurer.setUseSuffixPatternMatch(true);
 
         super.configurePathMatch(configurer);
     }

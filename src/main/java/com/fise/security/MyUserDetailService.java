@@ -1,8 +1,8 @@
 package com.fise.security;
 
-import com.fise.SpringContextHolder;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.annotation.ComponentScan;
 import org.springframework.security.core.authority.AuthorityUtils;
 import org.springframework.security.core.userdetails.User;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -12,12 +12,13 @@ import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Component;
 
 
-@Component
 @Slf4j
+@Component
+@ComponentScan
 public class MyUserDetailService implements UserDetailsService {
 
 
-
+    @Autowired
     private PasswordEncoder passwordEncoder;
 
     //返回一个UserDetail类型的参数，在这里我们可以自定义一个类实现UserDetail，以此来实现自己数据库的逻辑
