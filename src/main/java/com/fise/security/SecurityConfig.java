@@ -1,4 +1,4 @@
-package com.fise;
+package com.fise.security;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
@@ -16,21 +16,22 @@ public class SecurityConfig extends WebSecurityConfigurerAdapter {
     @Override
     protected void configure(HttpSecurity http) throws Exception {
         //设置访问静态资源
-        http
-//                .antMatchers("/static/**")
-//                "/css/**", "/js/**", "/fonts/**"
-//                , "/image/**", "/resources/favicon.ico","/","/**")
-//                .permitAll().anyRequest().authenticated()//除了上述match中对应得请求外，其他任何的请求都需要权限
-//                .and()
+        /*http
                 //设置表单登录跳转到自己的登录页面
                 .formLogin().loginPage("/login")
                 .loginProcessingUrl("/user_login")
                 .and()
                 .authorizeRequests()
                 //设置跳转后的页面权限
-                .antMatchers("/login","/login.html","/login_tips.html","/static/**").permitAll()
+                .antMatchers("/login", "/login.html", "/login_tips.html", "/static/**").permitAll()
                 .anyRequest().authenticated();
-
+*/
+        http.formLogin()          // 定义当需要用户登录时候，转到的登录页面。
+                .and()
+                .authorizeRequests()    // 定义哪些URL需要被保护、哪些不需要被保护
+                .antMatchers("/static/**", "resources/favicon.ico").permitAll()
+                .anyRequest()        // 任何请求,登录后可以访问
+                .authenticated();
 
     }
 

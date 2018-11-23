@@ -50,21 +50,19 @@ public class MyDateUtils {
      * @return
      */
     public static int dayToNow(Long time) {
-        DateTime dateTime = new DateTime(time);
-        DateTime dateTime1 = new DateTime(Calendar.getInstance());
-        return Days.daysBetween(dateTime, dateTime1).getDays();
+        DateTime startTime = new DateTime(time);
+        DateTime endTime = new DateTime(Calendar.getInstance());
+        return Days.daysBetween(startTime, endTime).getDays();
     }
 
     /**
      * 计算给定日期与系统当前日期相差的天数
      *
-     * @param time
+     * @param time 转入的日期格式为Date，
      * @return
      */
     public static int dayToNow(Date time) {
-        DateTime dateTime = new DateTime(time);
-        DateTime dateTime1 = new DateTime(Calendar.getInstance());
-        return Days.daysBetween(dateTime, dateTime1).getDays();
+        return dayToNow(time.getTime());
     }
 
 

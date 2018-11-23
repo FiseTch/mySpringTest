@@ -7,9 +7,12 @@ import com.fise.service.IMyUserService;
 import com.fise.util.MyDateUtils;
 import org.springframework.data.domain.Example;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.stereotype.Service;
 
 import java.util.Collection;
 
+
+@Service
 public class MyUserRepository {
 
 
@@ -18,7 +21,8 @@ public class MyUserRepository {
     }
 
     public static MyUser getUser(MyUser user) {
-        //MyUser myUser = SpringContextHolder.getBean(IMyUserService.class).getOne(username);
+        //todo 无法使用getOne()方法
+        //  这是一个测试
 
         MyUser myUser = SpringContextHolder.getBean(IMyUserService.class).findOne(Example.of(user)).get();
 

@@ -17,9 +17,9 @@ import java.io.IOException;
 public class SecurityController {
 
 
-    @RequestMapping("/user")
+    @RequestMapping("/index")
     public String userTest() {
-        return "test";
+        return "login";
     }
 
 

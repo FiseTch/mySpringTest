@@ -1,8 +1,9 @@
 package com.fise;
 
 import org.springframework.context.annotation.Configuration;
-import org.springframework.core.Ordered;
-import org.springframework.web.servlet.config.annotation.*;
+import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
+import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
+import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
 
 /**
  * @author Tongch
@@ -21,11 +22,13 @@ public class WebConfig extends WebMvcConfigurationSupport {
     }
 
 
-
-
-
-
-    //设置后缀名，根据请求的文档类型，来查找不同的视图以返回对应格式的文档
+    //在spring security中设置无效
+    /*@Override
+    protected void addViewControllers(ViewControllerRegistry registry) {
+        registry.addViewController("/").setViewName("/index");
+        super.addViewControllers(registry);
+    }*/
+//设置后缀名，根据请求的文档类型，来查找不同的视图以返回对应格式的文档
 
 
     @Override
