@@ -1,50 +1,39 @@
 package com.fise.controller;
 
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.stereotype.Controller;
-import org.springframework.util.StringUtils;
 import org.springframework.web.bind.annotation.RequestMapping;
 
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-import java.io.IOException;
 
-
+/**
+ * spring项目所有的初始路径配置管理类
+ */
+@Api(value = "用户初始入口", tags = "路径配置")
 @Slf4j
 @Controller
 @RequestMapping
 public class SecurityController {
 
 
-    @RequestMapping("/index")
-    public String userTest() {
+    @ApiOperation(value = "入口1", tags = "入口1")
+    @RequestMapping("/")
+    public String userEntrance1() {
         return "login";
     }
 
+    @ApiOperation(value = "入口2", tags = "入口2")
+    @RequestMapping("/index")
+    public String userEntrance2() {
+        return "login";
+    }
 
+    @ApiOperation(value = "入口3", tags = "入口3")
     @RequestMapping("/login")
-    public String securityEntrance(HttpServletRequest request, HttpServletResponse response) throws IOException {
-
-        //获取浏览器访问路径
-        log.info(Thread.currentThread().getStackTrace()[1].getMethodName() + " started");
-
-        StringBuffer requestURL = request.getRequestURL();
-
-        log.info(requestURL.toString());
-        //获取访问路径的相对path eg:/login
-        String path = requestURL.toString().substring(requestURL.toString().lastIndexOf("9") + 1);
-
-        log.info(path);
-        //设置自定义路径
-        if (StringUtils.endsWithIgnoreCase(requestURL.toString(), ".html")
-                || path.equals("/") || path.equals("/index")) {
-            log.info(path);
-            return "login";
-        } else {
-            return "login_tips";
-        }
-
+    public String userEntrance3() {
+        return "login";
     }
 
 

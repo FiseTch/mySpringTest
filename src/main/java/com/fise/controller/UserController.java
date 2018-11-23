@@ -16,7 +16,7 @@ import org.springframework.web.servlet.ModelAndView;
  */
 @Slf4j
 @Controller
-@RequestMapping
+@RequestMapping("/user")
 public class UserController {
 
 
