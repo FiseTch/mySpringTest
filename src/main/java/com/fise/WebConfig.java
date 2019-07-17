@@ -1,17 +1,17 @@
-/*package com.fise;
+package com.fise;
 
 import org.springframework.context.annotation.Configuration;
-import org.springframework.web.servlet.config.annotation.PathMatchConfigurer;
-import org.springframework.web.servlet.config.annotation.ResourceHandlerRegistry;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurationSupport;
+import org.springframework.web.servlet.config.annotation.*;
 
-*//**
+
+/**
  * @author Tongch
  * @version 1.0
  * @time 2018/11/19 17:24
- *//*
+ */
 
 @Configuration
+@EnableWebMvc
 public class WebConfig extends WebMvcConfigurationSupport {
     @Override
     protected void addResourceHandlers(ResourceHandlerRegistry registry) {
@@ -23,11 +23,11 @@ public class WebConfig extends WebMvcConfigurationSupport {
 
 
     //在spring security中设置无效
-    *//*@Override
+    @Override
     protected void addViewControllers(ViewControllerRegistry registry) {
         registry.addViewController("/").setViewName("/index");
         super.addViewControllers(registry);
-    }*//*
+    }
 //设置后缀名，根据请求的文档类型，来查找不同的视图以返回对应格式的文档
 
 
@@ -43,4 +43,4 @@ public class WebConfig extends WebMvcConfigurationSupport {
 
         super.configurePathMatch(configurer);
     }
-}*/
+}
