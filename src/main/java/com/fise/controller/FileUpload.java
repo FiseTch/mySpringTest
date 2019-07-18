@@ -32,11 +32,10 @@ public class FileUpload {
     
     @RequestMapping("/up.do")
     @ResponseBody//设置返回一个非页面
-    public SimpleResponse upLoadFile(@RequestParam("file") MultipartFile file){
+    public SimpleResponse upLoadFile(@RequestParam("upFile") MultipartFile file){
         if (file.isEmpty()){
             return SimpleResponse.builder().message("up.do").type(SimpleResponse.Type.SUCCESSFUL).build();
         }
-    
         String fileName = file.getOriginalFilename();
         String filePath = System.getProperty("user.dir");
         File dest = new File(filePath + fileName);
@@ -54,6 +53,6 @@ public class FileUpload {
     @ResponseBody
     @RequestMapping("/down.do")
     public SimpleResponse downFile(){
-        return SimpleResponse.builder().message("down.do").type(SimpleResponse.Type.FIAILED).build();
+        return SimpleResponse.builder().message("down.do").type(SimpleResponse.Type.FAILED).build();
     }
 }

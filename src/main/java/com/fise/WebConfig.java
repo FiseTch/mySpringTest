@@ -10,8 +10,6 @@ import org.springframework.web.servlet.config.annotation.*;
  * @time 2018/11/19 17:24
  */
 
-@Configuration
-@EnableWebMvc
 public class WebConfig extends WebMvcConfigurationSupport {
     @Override
     protected void addResourceHandlers(ResourceHandlerRegistry registry) {

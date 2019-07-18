@@ -17,7 +17,7 @@
         <div class="mod-body clearfix">
             <div class="content pull-left">
                 <h1 class="logo"><a href=""></a></h1>
-                <form id="login_form" method="post" onSubmit="return false" action="@{user_login}">
+                <form id="login_form" method="post" onSubmit="return false" th:action="@{user_login}">
                     <input type="hidden" name="return_url" value="0">
                     <ul>
                         <li>

@@ -1,16 +1,22 @@
 <!DOCTYPE html>
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org">
 <head>
     <meta http-equiv="Content-Type" content="text/html" charset="UTF-8">
-    <title>上传页面</title>
+    <meta name="renderer" content="webkit">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+    <title>&copy;Fise登录</title>
+    <link rel="stylesheet" th:href="@{static/css/style.css}" type = "text/css"/>
+    <link rel="stylesheet" th:href="@{static/css/icon.css}" type = "text/css"/>
+    <link rel="stylesheet" th:href="@{static/css/bootstrap.min.css}" type = "text/css"/>
 </head>
-<link rel = "stylesheet" href="../static/css/bootstrap.min.css"/>
 <body>
 <h1>你好</h1>
-<form>
-    <input type = file>
+<form class="form-group" th:action="@{/upload/up.do}" method="post" enctype="multipart/form-data">
+    <input type="file" name="upFile" multiple="multiple">
+    <input type="submit" value="上传">
 </form>
 </body>
 
-<script src = "../static/js/jquey-3.4.1.min.js"></script>
-<script src = "../static/js/bootstrap.min.js"></script>
+<script th:src="@{static/js/jquery-3.4.1.min.js}"></script>
+<script th:src="@{static/js/bootstrap.min.js}"></script>
 </html>

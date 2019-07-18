@@ -16,6 +16,6 @@ public class SimpleResponse {
     private Type type;
 
     public enum Type {
-        SUCCESSFUL,FIAILED,EXCEPTION
+        SUCCESSFUL,FAILED,EXCEPTION
     }
 }
